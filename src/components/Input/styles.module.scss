@@ -1,0 +1,50 @@
+@use "sass:color";
+
+.wrapperContainer {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  input:hover,
+  input:focus,
+  input:active,
+  input {
+    flex: 1;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 3px;
+    text-align: center;
+
+    font-family: theme.$fontNumber;
+
+    &:disabled {
+      background: repeating-linear-gradient(
+        45deg,
+        #8d9ea0,
+        #8d9ea0 10px,
+        #95a4a6 10px,
+        #95a4a6 20px
+      );
+    }
+
+    &:hover {
+      border: 0;
+    }
+
+    &::placeholder {
+      font-size: 0.8rem;
+      color: color.adjust(theme.$secondary, $lightness: 10%);
+    }
+
+    @media (max-width: 991px) {
+      font-size: 1rem;
+    }
+  }
+}
