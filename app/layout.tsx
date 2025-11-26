@@ -5,10 +5,18 @@ import "@/styles/global.scss";
 
 import * as fonts from "@/config/fonts";
 
+const title = "Dorfromantik - The Duel boardgame - Individual scorepad";
+
 export const metadata: Metadata = {
-  title: "Dorfromantik - The Duel boardgame - Individual scorepad",
+  title,
   description:
     "Individual scorepad for Dorfromantik The Duel boardgame. Save paper, save the world! :D",
+
+  appleWebApp: {
+    capable: true, // Enables full-screen web app mode
+    statusBarStyle: "default", // Or 'black-translucent'
+    title, // Title displayed under the icon
+  },
 };
 
 export default function RootLayout({
@@ -28,7 +36,19 @@ export default function RootLayout({
           content="no-cache, no-store, must-revalidate"
         />
 
-        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link
+          rel="icon"
+          href="/icon?<generated>"
+          type="image/<generated>"
+          sizes="<generated>"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/apple-icon?<generated>"
+          type="image/<generated>"
+          sizes="<generated>"
+        />
       </head>
 
       <body className={`${fonts.number.className} ${fonts.text.className}`}>
