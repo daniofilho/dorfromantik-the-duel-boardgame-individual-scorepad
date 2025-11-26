@@ -19,11 +19,16 @@
 
     span {
       position: absolute;
+      z-index: 3;
+
       top: 0.2rem;
       right: 0.4rem;
-      color: theme.$secondary;
-      font-size: 0.6rem;
+      color: theme.$primary;
+      font-size: 0.5rem;
+      font-family: theme.$fontNumber;
       line-height: 0.6rem;
+
+      pointer-events: none;
     }
   }
 

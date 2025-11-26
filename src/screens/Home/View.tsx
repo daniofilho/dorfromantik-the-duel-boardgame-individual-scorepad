@@ -25,8 +25,8 @@ export default function View() {
           <div>
             <Image
               src="/images/leftColumn.png"
-              width={24}
-              height={24}
+              width={32}
+              height={32}
               alt="Left Column"
             />
           </div>
@@ -34,8 +34,8 @@ export default function View() {
           <div>
             <Image
               src="/images/rightColumn.png"
-              width={24}
-              height={24}
+              width={32}
+              height={32}
               alt="Right Column"
             />
           </div>
@@ -46,13 +46,13 @@ export default function View() {
             id="forest"
             primary={{
               value: values.forest.primary,
-              set: (num) => {
-                setValue("forest", num, true);
+              set: (value) => {
+                setValue({ id: "forest", value, isPrimary: true });
               },
             }}
             secondary={{
               value: values.forest.secondary,
-              set: (num) => setValue("forest", num, false),
+              set: (value) => setValue({ id: "forest", value }),
             }}
           />
 
@@ -60,11 +60,11 @@ export default function View() {
             id="grain"
             primary={{
               value: values.grain.primary,
-              set: (num) => setValue("grain", num, true),
+              set: (value) => setValue({ id: "grain", value, isPrimary: true }),
             }}
             secondary={{
               value: values.grain.secondary,
-              set: (num) => setValue("grain", num, false),
+              set: (value) => setValue({ id: "grain", value }),
             }}
           />
 
@@ -72,11 +72,12 @@ export default function View() {
             id="village"
             primary={{
               value: values.village.primary,
-              set: (num) => setValue("village", num, true),
+              set: (value) =>
+                setValue({ id: "village", value, isPrimary: true }),
             }}
             secondary={{
               value: values.village.secondary,
-              set: (num) => setValue("village", num, false),
+              set: (value) => setValue({ id: "village", value }),
             }}
           />
 
@@ -85,11 +86,11 @@ export default function View() {
             longestLabel
             primary={{
               value: values.track.primary,
-              set: (num) => setValue("track", num, true),
+              set: (value) => setValue({ id: "track", value, isPrimary: true }),
             }}
             secondary={{
               value: values.track.secondary,
-              set: (num) => setValue("track", num, false),
+              set: (value) => setValue({ id: "track", value }),
             }}
           />
 
@@ -98,11 +99,12 @@ export default function View() {
             longestLabel
             primary={{
               value: values.stream.primary,
-              set: (num) => setValue("stream", num, true),
+              set: (value) =>
+                setValue({ id: "stream", value, isPrimary: true }),
             }}
             secondary={{
               value: values.stream.secondary,
-              set: (num) => setValue("stream", num, false),
+              set: (value) => setValue({ id: "stream", value }),
             }}
           />
 
@@ -111,7 +113,8 @@ export default function View() {
             secondaryDisabled
             primary={{
               value: values.wrapAround.primary,
-              set: (num) => setValue("wrapAround", num, true),
+              set: (value) =>
+                setValue({ id: "wrapAround", value, isPrimary: true }),
             }}
           />
 
@@ -120,7 +123,8 @@ export default function View() {
             secondaryDisabled
             primary={{
               value: values.number.primary,
-              set: (num) => setValue("number", num, true),
+              set: (value) =>
+                setValue({ id: "number", value, isPrimary: true }),
             }}
           />
         </section>
@@ -148,8 +152,8 @@ export default function View() {
             <div>
               <Image
                 src="/images/module1.png"
-                width={24}
-                height={24}
+                width={32}
+                height={32}
                 alt="Module 1"
               />
             </div>
@@ -157,8 +161,8 @@ export default function View() {
             <div>
               <Image
                 src="/images/module2.png"
-                width={24}
-                height={24}
+                width={32}
+                height={32}
                 alt="Module 2"
               />
             </div>
@@ -169,11 +173,11 @@ export default function View() {
             text="="
             primary={{
               value: modules.primary,
-              set: (num) => setModule(num, true),
+              set: (value) => setModule({ value, isPrimary: true }),
             }}
             secondary={{
               value: modules.secondary,
-              set: (num) => setModule(num, false),
+              set: (value) => setModule({ value }),
             }}
           />
         </section>
