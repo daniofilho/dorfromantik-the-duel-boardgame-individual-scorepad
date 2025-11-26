@@ -14,8 +14,6 @@ const UseControllerProvider: React.FC<IUseControllerProviderProps> = ({
 }) => {
   const store = createStore();
 
-  console.log("ss", store.get().values);
-
   const subTotal = useMemo(() => {
     const {
       values: { forest, grain, stream, track, village, wrapAround, number },

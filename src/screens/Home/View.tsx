@@ -10,8 +10,12 @@ export default function View() {
   return (
     <>
       <header className={styles.header}>
-        <h1>Dorfromantik - The Duel</h1>
-        <h2>Individual Scorepad</h2>
+        <Image
+          src="/images/logo.jpg"
+          width={376}
+          height={211}
+          alt="Dorfromantik The Duel Boardgame Individual Scorepad"
+        />
       </header>
 
       <div className={styles.homeContainer}>
@@ -20,7 +24,7 @@ export default function View() {
 
           <div>
             <Image
-              src={`/images/leftColumn.png`}
+              src="/images/leftColumn.png"
               width={24}
               height={24}
               alt="Left Column"
@@ -29,7 +33,7 @@ export default function View() {
 
           <div>
             <Image
-              src={`/images/rightColumn.png`}
+              src="/images/rightColumn.png"
               width={24}
               height={24}
               alt="Right Column"
@@ -43,7 +47,6 @@ export default function View() {
             primary={{
               value: values.forest.primary,
               set: (num) => {
-                console.log(num);
                 setValue("forest", num, true);
               },
             }}
@@ -144,7 +147,7 @@ export default function View() {
 
             <div>
               <Image
-                src={`/images/module1.png`}
+                src="/images/module1.png"
                 width={24}
                 height={24}
                 alt="Module 1"
@@ -153,7 +156,7 @@ export default function View() {
 
             <div>
               <Image
-                src={`/images/module2.png`}
+                src="/images/module2.png"
                 width={24}
                 height={24}
                 alt="Module 2"
@@ -190,7 +193,16 @@ export default function View() {
 
       <footer className={styles.footer}>
         <a href="https://daniofilho.com.br" target="_blank">
-          by @daniofilho
+          @daniofilho
+        </a>
+
+        <span>/</span>
+
+        <a
+          href="https://github.com/daniofilho/dorfromantik-the-duel-boardgame-individual-scorepad"
+          target="_blank"
+        >
+          Github
         </a>
       </footer>
     </>

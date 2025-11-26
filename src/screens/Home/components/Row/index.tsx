@@ -44,7 +44,7 @@ export default function Row({
           inputMode="numeric"
           pattern="[0-9]*"
           disabled={secondaryDisabled}
-          value={String(secondary?.value || "")}
+          value={secondaryDisabled ? "" : String(secondary?.value || "0")}
           onChange={
             secondary
               ? (e) => secondary.set(tryToConvertToNumber(e.target.value))
