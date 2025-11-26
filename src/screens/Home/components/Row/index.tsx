@@ -18,7 +18,7 @@ export default function Row({
         {text ? (
           <p>{text}</p>
         ) : (
-          <Image src={`/images/${id}.png`} width={24} height={24} alt={id} />
+          <Image src={`/images/${id}.png`} width={32} height={32} alt={id} />
         )}
       </div>
 
@@ -35,7 +35,7 @@ export default function Row({
       </div>
 
       <div>
-        {longestLabel && <span>~ ~ ~ ~ ~ ~</span>}
+        {longestLabel && <span>{"|>>>>|"}</span>}
 
         <Input
           name={`${id}_secondary`}

@@ -1,9 +1,16 @@
-import { createContext, useContext, useMemo } from "react";
+"use client";
+
+import { createContext, useContext, useMemo, useReducer } from "react";
 import {
+  IStoreActions,
+  IStoreReducer,
   IUseControllerContextProps,
   IUseControllerProviderProps,
 } from "./types";
-import { createStore } from "./store";
+import initialState from "./initialState";
+
+import * as StoreReducer from "./reducer";
+import mapReducerActions from "@/utils/mapReducerActions";
 
 const UseControllerContext = createContext<IUseControllerContextProps>(
   {} as IUseControllerContextProps
@@ -12,13 +19,23 @@ const UseControllerContext = createContext<IUseControllerContextProps>(
 const UseControllerProvider: React.FC<IUseControllerProviderProps> = ({
   children,
 }) => {
-  const store = createStore();
+  const [state, dispatch] = useReducer(StoreReducer.reducer, {
+    ...initialState,
+  });
+  const actions: IStoreActions = useMemo(
+    () => mapReducerActions(StoreReducer.actions, dispatch),
+    []
+  );
+  const reducer: IStoreReducer = useMemo(
+    () => ({ state, actions }),
+    [actions, state]
+  );
 
   const subTotal = useMemo(() => {
     const {
       values: { forest, grain, stream, track, village, wrapAround, number },
       modules,
-    } = store.get();
+    } = reducer.state;
 
     return {
       values: {
@@ -39,9 +56,7 @@ const UseControllerProvider: React.FC<IUseControllerProviderProps> = ({
       },
       modules,
     };
-  }, [store]);
-
-  // * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  }, [reducer]);
 
   const total = useMemo(() => {
     return (
@@ -56,16 +71,12 @@ const UseControllerProvider: React.FC<IUseControllerProviderProps> = ({
 
   const contextValue = useMemo(
     (): IUseControllerContextProps => ({
-      values: store.get().values,
-      modules: store.get().modules,
+      ...reducer.state,
+      ...reducer.actions,
       subTotal,
       total,
-      setValue: (id: string, value: number, isPrimary: boolean) =>
-        store.setValue(id, value, isPrimary),
-      setModule: (value: number, isPrimary: boolean) =>
-        store.setModule(value, isPrimary),
     }),
-    [store, subTotal, total]
+    [reducer.actions, reducer.state, subTotal, total]
   );
 
   return (

@@ -7,7 +7,7 @@ html {
   font-size: 16px;
 }
 
-article,
+main,
 html,
 body {
   display: flex;
@@ -16,9 +16,6 @@ body {
   margin: 0;
   padding: 0;
   border: 0;
-
-  min-height: 100%;
-  height: 100%;
 }
 
 p,
@@ -43,18 +40,16 @@ em {
   font-family: globalTheme.$fontText;
 }
 
-article {
-  height: 100%;
+main {
+  min-height: 100vh;
   flex: 1;
 
   padding: 0.5rem;
 
-  > main {
-    flex: 1;
-
-    display: flex;
-    flex-flow: column;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 picture {
@@ -62,6 +57,7 @@ picture {
 }
 img {
   max-width: 100%;
+  width: auto;
   height: auto;
   display: block;
 }
