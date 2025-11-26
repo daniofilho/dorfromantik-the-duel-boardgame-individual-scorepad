@@ -47,7 +47,7 @@ export default function RootLayout({
       </head>
 
       <body className={`${fonts.number.className} ${fonts.text.className}`}>
-        <article>{children}</article>
+        <main>{children}</main>
       </body>
 
       <GoogleAnalytics gaId="G-KE9HWGH7GL" />

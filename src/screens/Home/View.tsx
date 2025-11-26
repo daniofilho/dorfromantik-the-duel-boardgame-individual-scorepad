@@ -8,7 +8,7 @@ export default function View() {
     useController();
 
   return (
-    <>
+    <article>
       <header className={styles.header}>
         <Image
           src="/images/logo.jpg"
@@ -209,6 +209,6 @@ export default function View() {
           Github
         </a>
       </footer>
-    </>
+    </article>
   );
 }
